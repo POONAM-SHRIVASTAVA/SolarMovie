@@ -1,0 +1,193 @@
+﻿@model MovieStoreMvc.Models.Domain.Movie
+@{
+}
+
+
+<div class="movies">
+    <div class="row">
+        <div class="col">
+            <div class="movie-card">
+                <div class="movie-image">
+                    <img src="~/Uploads/@Model.MovieImage" alt="Movie Title">
+                    <div class="overlay-play-button">▶</div> <!-- Play button overlay -->
+                </div>
+                <div class="movie-info">
+                    <h2 class="text-3xl font-bold mb-1">@Model.Title</h2>
+                    <p class="text-lg text-gray-600 mb-1"><strong>Genre:</strong> @Model.GenreNames</p>
+                    <p class="text-lg text-gray-600 mb-1"><strong>Release Year:</strong> @Model.ReleaseYear</p>
+                    <p class="text-lg text-gray-600 mb-1"><strong>Cast:</strong> @Model.Cast</p>
+                    <p class="text-lg text-gray-600"><strong>Director:</strong> @Model.Director</p>
+                    <div class="movie-details">
+                        <div class="detail-item">
+                            <span>Length:</span>
+                            <span>03:37</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Lang:</span>
+                            <span>Eng</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Rating:</span>
+                            <span>6.4</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Review:</span>
+                            <span>45+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat the above block for more movie cards -->
+    </div>
+</div>
+
+
+
+
+
+<div class="review-section">
+    <h3 class="section-title">Submit a Review</h3>
+    <form asp-action="Add" asp-controller="Review" method="post" class="review-form">
+        <input type="hidden" name="movieId" value="@Model.Id" />
+        <textarea name="comment" placeholder="Write your review..." required class="review-textarea"></textarea>
+        <select name="rating" required class="review-select">
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+        <button type="submit" class="submit-button">Submit Review</button>
+    </form>
+
+    <h3 class="section-title" style="margin-top: 30px;"> Reviews </h3>
+
+    <div class="reviews">
+        @foreach (var review in ViewBag.Reviews)
+        {
+            <div class="review">
+                <p><strong>Rating:</strong> @review.Rating stars</p>
+                <p>@review.Comment</p>
+                <p><small>@review.CreatedAt.ToString("g")</small></p>
+            </div>
+        }
+    </div>
+
+</div>
+
+<style>
+
+
+    .movie-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 900px; /* Set a maximum width for the entire detail section */
+    }
+
+        .movie-detail .img-container {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            overflow: hidden;
+            margin: 0 auto 15px auto; /* Reduced bottom margin to bring the image and details closer */
+            border-radius: 15px; /* Makes the border rounder */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+        }
+
+            .movie-detail .img-container img {
+                width: 100%; /* Adjust width to 100% */
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px; /* Ensure the image follows the rounded border of the container */
+            }
+
+        .movie-detail .detail-container {
+            text-align: center; /* Center-align the text */
+            max-width: 600px; /* Ensure text container is not too wide */
+            margin: 0 auto; /* Center the text container */
+        }
+
+  
+
+
+   
+
+    .review-section {
+        margin-top: 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #444;
+    }
+
+    .review-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .review-textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: 100px;
+    }
+
+    .review-select {
+        width: 150px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .submit-button {
+        width: 150px;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        align-self: flex-start;
+    }
+
+    .submit-button:hover {
+        background-color: #218838;
+    }
+
+    .reviews {
+        margin-top: 30px;
+        border-top: 2px solid #000; /* Changed from #eee to #000 */
+        padding-top: 20px;
+    }
+
+    .review {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #000; /* Changed from #ddd to #000 */
+        border-radius: 8px;
+        background-color: #000; /* Changed from #f9f9f9 to #000 */
+        color: #fff; /* Added to ensure text is visible on black background */
+    }
+
+        .review p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .review small {
+            color: #aaa; /* Changed from #777 to a lighter gray for better contrast */
+        }
+</style>
+<div class="w-80 m-auto">
+    <a href="/Home/Index" class="btn btn-default">Back</a>
+</div>

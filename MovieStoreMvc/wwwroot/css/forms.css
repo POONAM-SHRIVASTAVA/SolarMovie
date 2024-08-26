@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(65,65,65);
+}
+
+form {
+    font-family: 'Mukta', sans-serif;
+}
+
+.message-box {
+    font-size: 16px;
+    padding: 0.3rem 0;
+}
+
+.pd-x-28 {
+    padding-left: 28.5%;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    padding: 0.4rem 0;
+}
+
+label {
+    padding-top: 0.8rem;
+    font-size: 16px;
+    display: block;
+    color: var(--primary-color);
+}
+
+.input {
+    padding: 0 0.5rem;
+    border: 0;
+    box-shadow: 0 1px 3px 0 rgb(43, 43, 43);
+    font-size: 15px;
+    width: 100%;
+    color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.alert {
+    background-color: rgb(177, 228, 249);
+    padding: 0.5rem;
+    font-size: 17px;
+    color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgb(4, 70, 96);
+}
+
+.btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    box-shadow: 0 3px 3px 0 grey;
+    line-height: 1.5;
+    display: inline-block;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+.btn-info {
+    background: #6a3093;  
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  
+    background: linear-gradient(to right, #a044ff, #6a3093);  
+}
+
+.btn-default {
+    background: #6a3093; 
+    background: -webkit-linear-gradient(to right, #a044ff, #6a3093);   
+    background: linear-gradient(to right, #a044ff, #6a3093);   
+}
+
+.btn-sec {
+    background: #4d63df;  
+    background: -webkit-linear-gradient(to right, #6275dd, #4d63df);  
+    background: linear-gradient(to right, #6275dd, #4d63df); 
+}
+
+.btn-danger {
+    background: #000000;  
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.tbl-container {
+    font-family: 'Mukta', sans-serif;
+    margin: 1.5rem 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgb(182, 255, 0);
+}
+
+    .tbl-container table {
+        width: 50%;
+        border-spacing: 0;
+        border-collapse: collapse;
+        color: var(--primary-color);
+    }
+
+        .tbl-container table th, td {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .tbl-container table th {
+            background-color: black;
+            color: var(--btn-text-color);
+        }
+
+        .tbl-container table tr {
+            background-color: var(--background-color);
+            transition: background-color 0.3s ease;
+        }
+
+            .tbl-container table tr:hover {
+                background-color: var(--secondary-color);
+                color: var(--btn-text-color);
+            }
